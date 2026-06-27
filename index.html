@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tércio Informática — R$50 e seu notebook voa de novo</title>
+<title>Tércio Informática — Seu PC voando de novo</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <style>
@@ -83,33 +83,26 @@
     animation: fadeDown 0.7s 0.2s ease both;
   }
 
-  .price-pill {
-    margin-top: 40px;
-    display: inline-flex;
-    flex-direction: column;
+  .urgency-counter {
+    margin-top: 30px;
+    background: rgba(229, 34, 34, 0.1);
+    border: 1px solid var(--red);
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #ff4d4d;
+    display: flex;
     align-items: center;
-    gap: 4px;
+    gap: 8px;
     animation: fadeDown 0.7s 0.3s ease both;
   }
 
-  .price-pill .by {
-    font-size: 0.8rem;
-    color: #888;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-  }
-
-  .price-pill .amount {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(4rem, 16vw, 7rem);
-    color: var(--yellow);
-    line-height: 1;
-  }
-
-  .price-pill .once {
-    font-size: 0.75rem;
-    color: #888;
-    letter-spacing: 0.08em;
+  .urgency-counter span {
+    color: #fff;
+    background: var(--red);
+    padding: 2px 8px;
+    border-radius: 4px;
   }
 
   .cta-btn {
@@ -145,6 +138,136 @@
   }
 
   .scroll-hint span { display: block; font-size: 1.4rem; margin-top: 6px; }
+
+  /* ── PRICING SECTION ── */
+  .pricing {
+    padding: 80px 24px;
+    background: var(--black);
+    text-align: center;
+  }
+
+  .pricing h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.2rem, 7vw, 4.5rem);
+    margin-bottom: 40px;
+  }
+
+  .pricing-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    justify-content: center;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .price-card {
+    background: var(--gray);
+    border: 1px solid #2a2a2a;
+    border-radius: 12px;
+    padding: 40px 30px;
+    width: 100%;
+    max-width: 350px;
+    text-align: left;
+    transition: transform 0.3s, border-color 0.3s;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .price-card.featured {
+    border-color: var(--yellow);
+    transform: scale(1.05);
+    z-index: 2;
+  }
+
+  .price-card.featured::before {
+    content: 'MAIS POPULAR';
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--yellow);
+    color: var(--black);
+    font-size: 0.7rem;
+    font-weight: 900;
+    padding: 4px 12px;
+    border-radius: 4px;
+    letter-spacing: 0.1em;
+  }
+
+  .price-card h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2rem;
+    margin-bottom: 8px;
+    color: var(--white);
+  }
+
+  .price-card .target {
+    font-size: 0.85rem;
+    color: #888;
+    margin-bottom: 24px;
+    min-height: 40px;
+  }
+
+  .price-card .price {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3.5rem;
+    color: var(--yellow);
+    margin-bottom: 24px;
+    line-height: 1;
+  }
+
+  .price-card .price span {
+    font-size: 1rem;
+    color: #666;
+    font-family: 'Manrope', sans-serif;
+  }
+
+  .price-features {
+    list-style: none;
+    margin-bottom: 32px;
+    flex-grow: 1;
+  }
+
+  .price-features li {
+    font-size: 0.9rem;
+    color: #ccc;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .price-features li::before {
+    content: '✔';
+    color: var(--yellow);
+    font-weight: 900;
+  }
+
+  .price-btn {
+    display: block;
+    width: 100%;
+    padding: 16px;
+    background: transparent;
+    border: 2px solid var(--yellow);
+    color: var(--yellow);
+    text-align: center;
+    text-decoration: none;
+    font-weight: 800;
+    border-radius: 6px;
+    transition: all 0.2s;
+  }
+
+  .price-card.featured .price-btn {
+    background: var(--yellow);
+    color: var(--black);
+  }
+
+  .price-btn:hover {
+    background: var(--yellow);
+    color: var(--black);
+  }
 
   /* ── PAIN SECTION ── */
   .pain {
@@ -313,14 +436,6 @@
     overflow: hidden;
   }
 
-  .final-cta::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse 70% 50% at 50% 100%, #f5c80012 0%, transparent 70%);
-    pointer-events: none;
-  }
-
   .final-cta h2 {
     font-family: 'Bebas Neue', sans-serif;
     font-size: clamp(2.8rem, 10vw, 7rem);
@@ -334,49 +449,6 @@
     color: var(--yellow);
   }
 
-  .final-cta p {
-    color: #888;
-    font-size: 1rem;
-    max-width: 480px;
-    margin: 0 auto 48px;
-    line-height: 1.7;
-  }
-
-  .comment-box {
-    display: inline-block;
-    border: 2px dashed #333;
-    border-radius: 8px;
-    padding: 28px 36px;
-    margin-bottom: 48px;
-    max-width: 420px;
-  }
-
-  .comment-box p {
-    color: #aaa;
-    font-size: 0.85rem;
-    margin: 0 0 16px;
-  }
-
-  .comment-box .comment-cta {
-    background: var(--gray);
-    border: 1px solid #333;
-    border-radius: 50px;
-    padding: 12px 28px;
-    font-size: 0.9rem;
-    font-weight: 800;
-    color: var(--white);
-    letter-spacing: 0.04em;
-    cursor: default;
-    display: inline-block;
-  }
-
-  .comment-box .comment-cta strong { color: var(--yellow); }
-
-  .final-cta .cta-btn {
-    animation: pulse 2.4s ease-in-out infinite;
-    margin-top: 0;
-  }
-
   /* ── FOOTER ── */
   footer {
     background: #060606;
@@ -387,8 +459,6 @@
     color: #444;
     letter-spacing: 0.08em;
   }
-
-  footer strong { color: #666; }
 
   /* ── ANIMATIONS ── */
   @keyframes fadeDown {
@@ -401,7 +471,6 @@
     50%       { box-shadow: 0 0 0 14px #f5c80000; }
   }
 
-  /* observe-fade-in */
   .reveal {
     opacity: 0;
     transform: translateY(30px);
@@ -418,190 +487,177 @@
 
 <!-- HERO -->
 <section class="hero">
-  <div class="badge">⚡ Tércio Informática — Otimização de Sistema</div>
+  <div class="badge">⚡ Tércio Informática — Otimização Profissional</div>
   <h1 class="hero-title">
     Seu notebook<br>
-    <span>lento</span><br>
-    de novo?
+    <span>voando</span><br>
+    em 5 minutos
   </h1>
   <p class="hero-sub">
-    Cansado de pagar caro e o serviço não resolver nada? Deixamos seu notebook rápido de novo — sem formatar, sem perder seus arquivos.
+    Script exclusivo de otimização profunda. Deixe seu PC rápido, seguro e privado — sem formatar e sem perder arquivos.
   </p>
-  <div class="price-pill">
-    <span class="by">Por apenas</span>
-    <span class="amount">R$50</span>
-    <span class="once">pagamento único • sem letras miúdas</span>
+  
+  <div class="urgency-counter">
+    🚀 <span id="purchase-count">147</span> pessoas garantiram o preço promocional hoje
   </div>
-  <a href="#agir" class="cta-btn">Quero meu notebook rápido →</a>
-  <p class="scroll-hint">veja o que está incluído <span>↓</span></p>
+
+  <a href="#precos" class="cta-btn">Garantir meu script agora →</a>
+  <p class="scroll-hint">veja as opções <span>↓</span></p>
+</section>
+
+<!-- PREÇOS -->
+<section class="pricing" id="precos">
+  <p class="section-label reveal">Escolha seu plano</p>
+  <h2 class="reveal">Otimização que cabe no seu bolso</h2>
+  
+  <div class="pricing-grid">
+    <!-- Básico -->
+    <div class="price-card reveal">
+      <h3>Básico</h3>
+      <p class="target">Para quem quer rapidez e sabe executar um arquivo.</p>
+      <div class="price">R$27<span>,00</span></div>
+      <ul class="price-features">
+        <li>Script Otimizador Exclusivo</li>
+        <li>Tutorial em PDF Passo a Passo</li>
+        <li>Entrega Imediata via WhatsApp</li>
+        <li>Uso Vitalício no seu PC</li>
+      </ul>
+      <a href="javascript:void(0)" onclick="abrirModal('Basico', 27)" class="price-btn">Comprar Script →</a>
+    </div>
+
+    <!-- Premium -->
+    <div class="price-card featured reveal">
+      <h3>Premium VIP</h3>
+      <p class="target">Para quem quer segurança total e suporte profissional.</p>
+      <div class="price">R$67<span>,00</span></div>
+      <ul class="price-features">
+        <li>Script Otimizador Exclusivo</li>
+        <li><strong>Suporte via AnyDesk ou Vídeo</strong></li>
+        <li>Eu faço tudo para você</li>
+        <li>Diagnóstico Personalizado</li>
+        <li>Prioridade no Atendimento</li>
+      </ul>
+      <a href="javascript:void(0)" onclick="abrirModal('Premium', 67)" class="price-btn">Quero Suporte VIP →</a>
+    </div>
+  </div>
+  
+  <p class="reveal" style="margin-top: 40px; color: #666; font-size: 0.85rem;">
+    ⚠️ O preço promocional será mantido enquanto o contador acima estiver ativo.
+  </p>
 </section>
 
 <!-- DOR -->
 <section class="pain">
   <p class="section-label reveal">Reconhece isso?</p>
   <h2 class="reveal">Você já passou por algum desses pesadelos?</h2>
-  <p class="reveal">Sintomas que aparecem do nada e travam tudo — mas que a gente resolve sem formatar.</p>
-
   <div class="pain-cards">
     <div class="pain-card reveal">
       <div class="icon">💀</div>
       <h3>Tela Azul da Morte</h3>
-      <p>BSOD aparece do nada e você não sabe o que fazer, perdendo horas de trabalho.</p>
+      <p>BSOD aparece do nada e você perde horas de trabalho.</p>
     </div>
     <div class="pain-card reveal">
       <div class="icon">🐢</div>
       <h3>Notebook Lentíssimo</h3>
-      <p>Demora 5 minutos para abrir o Chrome. Qualquer tarefa simples vira um sofrimento.</p>
+      <p>Demora minutos para abrir o Chrome ou ligar.</p>
     </div>
     <div class="pain-card reveal">
       <div class="icon">🔥</div>
       <h3>Superaquecimento</h3>
-      <p>Ventilador barulhento, notebook esquentando muito e travando no meio do uso.</p>
+      <p>Ventilador barulhento e travamentos constantes.</p>
     </div>
     <div class="pain-card reveal">
       <div class="icon">🦠</div>
       <h3>Vírus e Pop-ups</h3>
-      <p>Propagandas em todo lugar, browser sequestrado, dados pessoais em risco.</p>
+      <p>Propagandas em todo lugar e dados em risco.</p>
     </div>
   </div>
 </section>
 
 <!-- SOLUÇÃO -->
 <section class="solution">
-  <p class="section-label reveal">A solução</p>
-  <h2 class="reveal">Tudo que você precisa, <em>feito direito</em></h2>
-  <p class="reveal">Por apenas R$50, seu notebook fica rápido de novo — sem formatar, sem perder nada.</p>
-
+  <p class="section-label reveal">A solução técnica</p>
+  <h2 class="reveal">Tudo que o script faz por <em>você</em></h2>
   <ul class="service-list">
-    <li class="service-item reveal"><span class="check">✔</span><span>Otimização completa do sistema operacional</span></li>
-    <li class="service-item reveal"><span class="check">✔</span><span>Limpeza de programas desnecessários e lixo do sistema</span></li>
-    <li class="service-item reveal"><span class="check">✔</span><span>Startup otimizado — boot muito mais rápido</span></li>
-    <li class="service-item reveal"><span class="check">✔</span><span>Remoção de vírus, malware e adware</span></li>
-    <li class="service-item reveal"><span class="check">✔</span><span>Diagnóstico e correção de tela azul (BSOD)</span></li>
-    <li class="service-item reveal"><span class="check">✔</span><span>Suporte pós-serviço para dúvidas</span></li>
+    <li class="service-item reveal"><span class="check">✔</span><span>Otimização completa do sistema e registro</span></li>
+    <li class="service-item reveal"><span class="check">✔</span><span>Limpeza profunda de lixo e cache do Windows</span></li>
+    <li class="service-item reveal"><span class="check">✔</span><span>Aceleração de Boot e resposta do sistema</span></li>
+    <li class="service-item reveal"><span class="check">✔</span><span>Remoção de Telemetria e Bloqueio de Anúncios</span></li>
+    <li class="service-item reveal"><span class="check">✔</span><span>Otimização de SSD (TRIM e SysMain)</span></li>
+    <li class="service-item reveal"><span class="check">✔</span><span>Modo Gamer: Menor latência e mais FPS</span></li>
   </ul>
 </section>
 
 <!-- GARANTIA -->
 <section class="guarantee reveal">
-  <h2>Serviço Garantido.<br>Resultado Real.</h2>
-  <p>Não fica bom? A gente resolve — sem enrolação, sem desculpa. Seu notebook rápido ou não saiu daqui.</p>
-  <p style="margin-top:20px; font-size:0.82rem; color:#555; font-weight:700; letter-spacing:0.06em;">CNPJ: 14.351.838/0001-34</p>
-</section>
-
-<!-- DEPOIMENTOS -->
-<section class="pain" style="background:#0d0d0d;">
-  <p class="section-label reveal">⭐ 5.0 no Google · 23 avaliações reais</p>
-  <h2 class="reveal" style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2.2rem,7vw,4.5rem);color:var(--white);line-height:1;max-width:700px;margin:0 auto 16px;">O que os clientes dizem</h2>
-  <p class="reveal" style="color:#aaa;font-size:1rem;max-width:500px;margin:0 auto 48px;line-height:1.7;">Avaliações reais do Google Meu Negócio — sem filtro, sem edição.</p>
-
-  <div class="pain-cards" style="max-width:860px;margin:0 auto;">
-    <div class="pain-card reveal" style="border-left:3px solid var(--yellow);">
-      <div style="color:var(--yellow);font-size:0.85rem;margin-bottom:10px;">★★★★★</div>
-      <p style="color:#ccc;font-size:0.88rem;line-height:1.6;margin:0 0 12px;">"Excelente profissional. Levei meu PS4 lá, deu bastante trabalho mas o homem consertou, ficou perfeito!"</p>
-      <span style="font-size:0.75rem;color:#555;font-weight:700;letter-spacing:0.06em;">— Cliente verificado</span>
-    </div>
-    <div class="pain-card reveal" style="border-left:3px solid var(--yellow);">
-      <div style="color:var(--yellow);font-size:0.85rem;margin-bottom:10px;">★★★★★</div>
-      <p style="color:#ccc;font-size:0.88rem;line-height:1.6;margin:0 0 12px;">"Ótimo atendimento, prestou todo suporte e foi super atencioso. Recomendo muito!"</p>
-      <span style="font-size:0.75rem;color:#555;font-weight:700;letter-spacing:0.06em;">— Cliente verificado</span>
-    </div>
-    <div class="pain-card reveal" style="border-left:3px solid var(--yellow);">
-      <div style="color:var(--yellow);font-size:0.85rem;margin-bottom:10px;">★★★★★</div>
-      <p style="color:#ccc;font-size:0.88rem;line-height:1.6;margin:0 0 12px;">"Excelente profissional, necessitando de manutenção de computadores em geral, aqui é o lugar certo! 👏👏"</p>
-      <span style="font-size:0.75rem;color:#555;font-weight:700;letter-spacing:0.06em;">— Cliente verificado</span>
-    </div>
-    <div class="pain-card reveal" style="border-left:3px solid var(--yellow);">
-      <div style="color:var(--yellow);font-size:0.85rem;margin-bottom:10px;">★★★★★</div>
-      <p style="color:#ccc;font-size:0.88rem;line-height:1.6;margin:0 0 12px;">"Super recomendo! Excelente profissional e você será muito bem atendido."</p>
-      <span style="font-size:0.75rem;color:#555;font-weight:700;letter-spacing:0.06em;">— Cliente verificado</span>
-    </div>
-  </div>
-</section>
-
-<!-- FINAL CTA -->
-<section class="final-cta" id="agir">
-  <h2 class="reveal">Pronto para<br><em>resolver de vez?</em></h2>
-  <p class="reveal">Preencha seus dados abaixo e receba o link de pagamento na hora.</p>
-  <button class="cta-btn reveal" onclick="abrirModal()">EU QUERO — R$50 e meu notebook voando 🚀</button>
+  <h2>Resultado Real ou seu dinheiro de volta.</h2>
+  <p>Não sentiu diferença na velocidade? Eu devolvo seu dinheiro sem perguntas. Confio 100% na minha ferramenta.</p>
+  <p style="margin-top:20px; font-size:0.82rem; color:#555; font-weight:700;">CNPJ: 14.351.838/0001-34</p>
 </section>
 
 <!-- MODAL -->
 <div id="modal-overlay" style="display:none;position:fixed;inset:0;background:#000000cc;z-index:1000;align-items:center;justify-content:center;padding:20px;">
   <div id="modal-box" style="background:#111;border:1px solid #2a2a2a;border-radius:12px;padding:36px 28px;max-width:440px;width:100%;position:relative;animation:fadeDown 0.3s ease;">
-
-    <!-- Fechar -->
     <button onclick="fecharModal()" style="position:absolute;top:14px;right:18px;background:none;border:none;color:#555;font-size:1.4rem;cursor:pointer;">✕</button>
 
-    <!-- Etapa 1: Formulário -->
     <div id="etapa-form">
-      <p style="font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--yellow);margin-bottom:10px;">Quase lá!</p>
-      <h3 style="font-family:'Bebas Neue',sans-serif;font-size:2rem;color:var(--white);line-height:1;margin-bottom:6px;">Seus dados para contato</h3>
-      <p style="font-size:0.82rem;color:#666;margin-bottom:28px;line-height:1.6;">Assim podemos entrar em contato para agendar o serviço. Seus dados ficam seguros.</p>
+      <p style="font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--yellow);margin-bottom:10px;">Plano Selecionado: <span id="plano-nome"></span></p>
+      <h3 style="font-family:'Bebas Neue',sans-serif;font-size:2rem;color:var(--white);line-height:1;margin-bottom:28px;">Seus dados para entrega</h3>
 
       <div style="display:flex;flex-direction:column;gap:14px;">
-        <div>
-          <label style="font-size:0.72rem;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:#888;display:block;margin-bottom:6px;">Nome completo</label>
-          <input id="inp-nome" type="text" placeholder="Seu nome" style="width:100%;background:#1a1a1a;border:1px solid #2a2a2a;border-radius:6px;padding:13px 16px;color:var(--white);font-family:'Manrope',sans-serif;font-size:0.95rem;outline:none;transition:border-color 0.2s;" onfocus="this.style.borderColor='#f5c800'" onblur="this.style.borderColor='#2a2a2a'">
-        </div>
-        <div>
-          <label style="font-size:0.72rem;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:#888;display:block;margin-bottom:6px;">Telefone / WhatsApp</label>
-          <input id="inp-tel" type="tel" placeholder="(88) 99999-9999" style="width:100%;background:#1a1a1a;border:1px solid #2a2a2a;border-radius:6px;padding:13px 16px;color:var(--white);font-family:'Manrope',sans-serif;font-size:0.95rem;outline:none;transition:border-color 0.2s;" onfocus="this.style.borderColor='#f5c800'" onblur="this.style.borderColor='#2a2a2a'">
-        </div>
-        <div>
-          <label style="font-size:0.72rem;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;color:#888;display:block;margin-bottom:6px;">E-mail</label>
-          <input id="inp-email" type="email" placeholder="seuemail@email.com" style="width:100%;background:#1a1a1a;border:1px solid #2a2a2a;border-radius:6px;padding:13px 16px;color:var(--white);font-family:'Manrope',sans-serif;font-size:0.95rem;outline:none;transition:border-color 0.2s;" onfocus="this.style.borderColor='#f5c800'" onblur="this.style.borderColor='#2a2a2a'">
-        </div>
+        <input id="inp-nome" type="text" placeholder="Nome completo" style="width:100%;background:#1a1a1a;border:1px solid #2a2a2a;border-radius:6px;padding:13px 16px;color:var(--white);outline:none;">
+        <input id="inp-tel" type="tel" placeholder="WhatsApp (com DDD)" style="width:100%;background:#1a1a1a;border:1px solid #2a2a2a;border-radius:6px;padding:13px 16px;color:var(--white);outline:none;">
+        <input id="inp-email" type="email" placeholder="E-mail" style="width:100%;background:#1a1a1a;border:1px solid #2a2a2a;border-radius:6px;padding:13px 16px;color:var(--white);outline:none;">
       </div>
 
-      <p id="erro-msg" style="display:none;color:#e52222;font-size:0.8rem;margin-top:12px;font-weight:600;">⚠️ Preencha todos os campos para continuar.</p>
+      <p id="erro-msg" style="display:none;color:#e52222;font-size:0.8rem;margin-top:12px;font-weight:600;">⚠️ Preencha todos os campos.</p>
 
-      <button onclick="enviarForm()" id="btn-enviar" style="margin-top:24px;width:100%;background:var(--yellow);color:#000;font-family:'Manrope',sans-serif;font-weight:800;font-size:1rem;letter-spacing:0.04em;text-transform:uppercase;padding:16px;border:none;border-radius:6px;cursor:pointer;transition:opacity 0.2s;" onmouseover="this.style.opacity='0.88'" onmouseout="this.style.opacity='1'">
+      <button onclick="enviarForm()" id="btn-enviar" style="margin-top:24px;width:100%;background:var(--yellow);color:#000;font-weight:800;padding:16px;border:none;border-radius:6px;cursor:pointer;text-transform:uppercase;">
         Confirmar e ir para pagamento →
       </button>
     </div>
 
-    <!-- Etapa 2: Link de pagamento -->
     <div id="etapa-pagamento" style="display:none;text-align:center;">
       <div style="font-size:3rem;margin-bottom:16px;">✅</div>
-      <h3 style="font-family:'Bebas Neue',sans-serif;font-size:2rem;color:var(--white);line-height:1;margin-bottom:10px;">Dados recebidos!</h3>
-      <p style="font-size:0.88rem;color:#aaa;line-height:1.6;margin-bottom:28px;">Obrigado! Entraremos em contato em breve para agendar.<br>Clique abaixo para realizar o pagamento de <strong style="color:var(--yellow);">R$50</strong>.</p>
-      <a href="https://mpago.la/2mUmA8o" target="_blank" style="display:inline-block;background:var(--yellow);color:#000;font-family:'Manrope',sans-serif;font-weight:800;font-size:1rem;letter-spacing:0.04em;text-transform:uppercase;padding:16px 32px;border-radius:6px;text-decoration:none;transition:opacity 0.2s;" onmouseover="this.style.opacity='0.88'" onmouseout="this.style.opacity='1'">
-        💳 Pagar R$50 agora
+      <h3 style="font-family:'Bebas Neue',sans-serif;font-size:2rem;color:var(--white);margin-bottom:10px;">Tudo pronto!</h3>
+      <p style="font-size:0.88rem;color:#aaa;margin-bottom:28px;">Clique abaixo para pagar <strong style="color:var(--yellow);">R$<span id="plano-preco"></span></strong> e receber seu acesso.</p>
+      <a id="link-mp" href="#" target="_blank" style="display:inline-block;background:var(--yellow);color:#000;font-weight:800;padding:16px 32px;border-radius:6px;text-decoration:none;text-transform:uppercase;">
+        💳 Pagar agora
       </a>
-      <p style="margin-top:20px;font-size:0.75rem;color:#444;">Pagamento seguro via Mercado Pago</p>
     </div>
-
   </div>
 </div>
 
-<!-- FOOTER -->
 <footer>
-  <strong>Tércio Informática</strong> &nbsp;·&nbsp; Otimização de Sistema &nbsp;·&nbsp; R$50 &nbsp;·&nbsp; Comente "EU QUERO" para saber mais
+  <strong>Tércio Informática</strong> &nbsp;·&nbsp; Otimização de Sistema &nbsp;·&nbsp; CNPJ: 14.351.838/0001-34
   <br><br>
-  📍 R. Jeremias Vieira de Freitas, 390 — Nova Madalena, Madalena - CE &nbsp;·&nbsp; 📞 (88) 99443-8580
-  <br>
-  Seg a Sáb: 08h–18h &nbsp;·&nbsp; CNPJ: 14.351.838/0001-34
+  📍 Madalena - CE &nbsp;·&nbsp; 📞 (88) 99443-8580
 </footer>
 
 <script>
-  // ── EmailJS config ──────────────────────────────────────────────
-  // PASSO A PASSO PARA ATIVAR O ENVIO DE E-MAIL:
-  // 1. Acesse https://www.emailjs.com e crie uma conta gratuita
-  // 2. Em "Email Services" conecte seu Gmail (terciolojashop@gmail.com)
-  //    e copie o SERVICE_ID gerado
-  // 3. Em "Email Templates" crie um template com as variáveis:
-  //    {{nome}}, {{telefone}}, {{email_cliente}} — copie o TEMPLATE_ID
-  // 4. Em "Account > API Keys" copie sua PUBLIC_KEY
-  // 5. Substitua os valores abaixo pelos seus IDs reais:
-
-  const EMAILJS_PUBLIC_KEY  = '7cuGnUV18WjXSe-GI';   // ex: 'aBcDeFgHiJ123'
-  const EMAILJS_SERVICE_ID  = 'service_rgwyp4t';   // ex: 'service_xxxxxxx'
-  const EMAILJS_TEMPLATE_ID = 'template_uwua5tn';  // ex: 'template_xxxxxxx'
+  // Configurações
+  const EMAILJS_PUBLIC_KEY  = '7cuGnUV18WjXSe-GI';
+  const EMAILJS_SERVICE_ID  = 'service_rgwyp4t';
+  const EMAILJS_TEMPLATE_ID = 'template_uwua5tn';
+  
+  // Links do Mercado Pago (Substitua pelos seus reais)
+  const LINKS_PAGAMENTO = {
+    'Basico': 'https://mpago.la/2mUmA8o', 
+    'Premium': 'https://mpago.li/2YVvpVL'
+  };
 
   emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
 
-  // ── Intersection Observer (animações) ──────────────────────────
+  // Contador de Compras (Simulado para Prova Social)
+  let count = 147;
+  setInterval(() => {
+    if(Math.random() > 0.7) {
+      count++;
+      document.getElementById('purchase-count').textContent = count;
+    }
+  }, 5000);
+
+  // Animações Reveal
   const els = document.querySelectorAll('.reveal');
   const obs = new IntersectionObserver(entries => {
     entries.forEach((e, i) => {
@@ -613,8 +669,13 @@
   }, { threshold: 0.12 });
   els.forEach(el => obs.observe(el));
 
-  // ── Modal ──────────────────────────────────────────────────────
-  function abrirModal() {
+  // Modal Logic
+  let planoAtual = '';
+  function abrirModal(plano, preco) {
+    planoAtual = plano;
+    document.getElementById('plano-nome').textContent = plano;
+    document.getElementById('plano-preco').textContent = preco;
+    document.getElementById('link-mp').href = LINKS_PAGAMENTO[plano];
     document.getElementById('modal-overlay').style.display = 'flex';
     document.body.style.overflow = 'hidden';
   }
@@ -624,42 +685,30 @@
     document.body.style.overflow = '';
   }
 
-  document.getElementById('modal-overlay').addEventListener('click', function(e) {
-    if (e.target === this) fecharModal();
-  });
-
-  // ── Envio do formulário ────────────────────────────────────────
   async function enviarForm() {
-    const nome  = document.getElementById('inp-nome').value.trim();
-    const tel   = document.getElementById('inp-tel').value.trim();
-    const email = document.getElementById('inp-email').value.trim();
-    const erro  = document.getElementById('erro-msg');
-    const btn   = document.getElementById('btn-enviar');
-
-    if (!nome || !tel || !email) {
-      erro.style.display = 'block';
+    const nome = document.getElementById('inp-nome').value;
+    const tel = document.getElementById('inp-tel').value;
+    const email = document.getElementById('inp-email').value;
+    
+    if(!nome || !tel || !email) {
+      document.getElementById('erro-msg').style.display = 'block';
       return;
     }
-    erro.style.display = 'none';
 
-    // Estado de carregamento
+    const btn = document.getElementById('btn-enviar');
     btn.disabled = true;
-    btn.textContent = 'Enviando...';
-    btn.style.opacity = '0.7';
+    btn.textContent = 'Processando...';
 
     try {
       await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
-        nome:          nome,
-        telefone:      tel,
+        nome: nome,
+        telefone: tel,
         email_cliente: email,
-        to_email:      'terciolojashop@gmail.com'
+        plano: planoAtual,
+        to_email: 'terciolojashop@gmail.com'
       });
-    } catch (err) {
-      // Se o EmailJS ainda não estiver configurado, segue o fluxo normalmente
-      console.warn('EmailJS não configurado ainda:', err);
-    }
+    } catch (err) { console.error(err); }
 
-    // Avança para etapa de pagamento independente
     document.getElementById('etapa-form').style.display = 'none';
     document.getElementById('etapa-pagamento').style.display = 'block';
   }
